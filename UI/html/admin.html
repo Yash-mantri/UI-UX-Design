@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="dashboard-body">
+
+<div class="header">
+  Admin Dashboard
+  <button class="secondary" onclick="logout()">Logout</button>
+</div>
+
+
+<div class="container">
+
+
+  <div class="form-section">
+    <input id="empName" placeholder="Username">
+    <input id="empEmail" placeholder="Email">
+
+    <button id="addBtn" onclick="addUser()">Add</button>
+    <button id="updateBtn" style="display:none;" onclick="updateUser()">Update</button>
+    <button id="cancelBtn" style="display:none;" onclick="cancelEdit()">Cancel</button>
+  </div>
+
+
+  <div class="table-section">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+
+</div>
+
+
+  <script src="../js/script.js"></script>
+</body>
+
+</html>

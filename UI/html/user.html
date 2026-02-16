@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body >
+
+<div class="header">
+  User Dashboard
+  <button class="secondary" onclick="logout()">Logout</button>
+</div>
+
+<div class="container">
+
+  <!-- STATIC VIEW -->
+  <div id="viewSection" class="form-section">
+    <p><b>Username:</b> <span id="viewUsername"></span></p>
+    <p><b>Email:</b> <span id="viewEmail"></span></p>
+
+    <button onclick="showOptions()">Update</button>
+  </div>
+
+  <!-- OPTION BUTTONS -->
+  <div id="optionSection" class="form-section" style="display:none;">
+    <button onclick="showProfileForm()">Update Profile</button>
+    <button onclick="showPasswordForm()">Update Password</button>
+    <button class="secondary" onclick="cancelOption()">Cancel</button>
+  </div>
+
+  <!-- PROFILE FORM -->
+  <div id="profileSection" class="form-section" style="display:none;">
+    <input id="uName" placeholder="Username">
+    <input id="uEmail" placeholder="Email">
+
+    <button onclick="updateProfile()">Save</button>
+    <button class="secondary" onclick="cancelAll()">Cancel</button>
+  </div>
+
+  <!-- PASSWORD FORM -->
+  <div id="passwordSection" class="form-section" style="display:none;">
+    <input id="newPass" type="password" placeholder="New Password">
+    <input id="confirmPass" type="password" placeholder="Confirm Password">
+
+    <button onclick="updatePassword()">Save</button>
+    <button class="secondary" onclick="cancelAll()">Cancel</button>
+  </div>
+
+</div>
+
+<script src="../js/script.js"></script>
+</body>
+
+</html>

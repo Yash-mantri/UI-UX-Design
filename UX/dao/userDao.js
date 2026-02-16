@@ -1,6 +1,6 @@
 const db = require("../utils/db");
 
-// FIND USER FOR LOGIN
+
 exports.findUser = (username, password) => {
   return new Promise((resolve, reject) => {
     db.query(
@@ -12,7 +12,6 @@ exports.findUser = (username, password) => {
 };
 
 
-// GET ALL USERS
 exports.getAll = () => {
   return new Promise((resolve, reject) => {
     db.query(
@@ -41,7 +40,7 @@ exports.getByUsername = (username) => {
 
 
 
-// ADD USER
+
 exports.add = (u) => {
   return new Promise((resolve, reject) => {
     db.query(
@@ -52,7 +51,7 @@ exports.add = (u) => {
   });
 };
 
-// UPDATE USER
+
 exports.updateUser = (id, u) => {
   return new Promise((resolve, reject) => {
     db.query(
@@ -72,7 +71,7 @@ exports.updatePassword = (id, pass)=>{
 };
 
 
-// DELETE USER
+
 exports.remove = (id) => {
   return new Promise((resolve, reject) => {
     db.query(

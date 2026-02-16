@@ -1,6 +1,6 @@
 const dao = require("../dao/userDao");
 
-// LOGIN LOGIC
+
 exports.login = async (username, password) => {
 
   if (!username || username.trim() === "")
@@ -22,7 +22,7 @@ exports.login = async (username, password) => {
   return { status:true, role:"user", user:user };
 };
 
-// SIGNUP LOGIC
+
 exports.signup = async (u) => {
 
   if(!u.username || !u.password || !u.email)
@@ -34,39 +34,38 @@ exports.signup = async (u) => {
 };
 
 
-// ADMIN – GET ALL
+
 exports.getAllUsers = async () => {
   return await dao.getAll();
 };
 
-// USER PROFILE
+
 exports.getUser = async (username) => {
   return await dao.getByUsername(username);
 };
 
-// ADD USER (ADMIN)
 exports.addUser = async (u) => {
 
-  // ---- VALIDATION ----
+  
   if (!u.username || u.username.trim() === "")
     return { status:false, message:"Username Required" };
 
   if (!u.email || u.email.trim() === "")
     return { status:false, message:"Email Required" };
 
-  // Optional Email Format Check
+  
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(u.email))
     return { status:false, message:"Invalid Email Format" };
 
-  // ---- DAO CALL ----
+ 
   await dao.add(u);
 
   return { status:true, message:"User Added" };
 };
 
 
-// UPDATE USER
+
 exports.updateUser = async (id, u) => {
 
   if (!u.username || u.username.trim() === "")
@@ -94,7 +93,7 @@ exports.updatePassword = async (id, pass) => {
 };
 
 
-// DELETE USER
+
 exports.deleteUser = async (id) => {
   await dao.remove(id);
   return { message:"Deleted" };

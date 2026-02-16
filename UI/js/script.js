@@ -1,6 +1,6 @@
 const BASE_URL = "http://192.168.0.108:6969/api";
 
-// ---------- NAV ----------
+
 function goLogin() { window.location = "login.html"; }
 function goSignup() { window.location = "signup.html"; }
 function logout() {
@@ -8,7 +8,7 @@ function logout() {
   window.location = "index.html";
 }
 
-// ---------- SIGNUP ----------
+
 function signup() {
   fetch(BASE_URL + "/signup", {
     method: "POST",
@@ -25,13 +25,12 @@ function signup() {
 
       setTimeout(() => {
         window.location.href = "login.html";
-      }, 500); // small delay
+      }, 500); 
     })
     .catch(() => alert("Server Error"));
 }
 
 
-// ---------- LOGIN ----------
 function login() {
   const usernameEl = document.getElementById("username");
   const passwordEl = document.getElementById("password");
@@ -56,7 +55,7 @@ function login() {
     });
 }
 
-// ================= ADMIN =================
+
 
 let editId = null;
 
@@ -83,7 +82,7 @@ function loadUsers() {
     });
 }
 
-// ADD USER (FIXED)
+
 function addUser() {
   fetch(BASE_URL + "/users", {
     method: "POST",
@@ -99,7 +98,7 @@ function addUser() {
       alert(d.message);
       empName.value = "";
       empEmail.value = "";
-      loadUsers();   // refresh table only
+      loadUsers();   
     });
 }
 
@@ -113,7 +112,7 @@ function editUser(id, n, e) {
 
   document.getElementById("addBtn").style.display = "none";
   document.getElementById("updateBtn").style.display = "block";
-  document.getElementById("cancelBtn").style.display = "block"; // IMPORTANT
+  document.getElementById("cancelBtn").style.display = "block"; 
 }
 
 
@@ -143,7 +142,7 @@ function updateUser() {
       // BUTTON RESET
       document.getElementById("addBtn").style.display = "block";
       document.getElementById("updateBtn").style.display = "none";
-      document.getElementById("cancelBtn").style.display = "none"; // MISSING
+      document.getElementById("cancelBtn").style.display = "none"; 
       loadUsers();
     });
 }
@@ -167,7 +166,7 @@ function deleteUser(id) {
     .then(loadUsers);
 }
 
-// ================= USER =================
+
 
 function loadProfile(){
   const uname = localStorage.getItem("user");
@@ -253,6 +252,5 @@ function cancelAll(){
 
 
 
-// ---------- AUTO LOAD ----------
 if (window.location.pathname.includes("admin.html")) loadUsers();
 if (window.location.pathname.includes("user.html")) loadProfile();
